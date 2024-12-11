@@ -5,7 +5,7 @@
 ### Frequency Counter
 
 This pattern uses hash-maps (e.g. objects) to collect values and their frequncies.
-This can often avoid nested loops or O(n^2) operations with arrays/strings
+This can often **avoid nested loops or O(n^2)** operations with arrays/strings
 
 **When to use it:**
 

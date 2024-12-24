@@ -23,4 +23,29 @@
 // SOLUTION
 // =============================================================
 
-function countPairsWithSum(arr, target) {}
+function countPairsWithSum(arr, target) {
+  let left = 0,
+    right = arr.length - 1,
+    count = 0;
+  const lookup = {};
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+    if (sum === target) {
+      const pair = `${arr[left]},${arr[right]}`;
+      // To filter distinct pairs of values
+      if (arr[left] !== arr[right] && !lookup[pair]) {
+        lookup[pair] = 1;
+        count++;
+      }
+      left++;
+      right--;
+    } else if (sum < target) left++;
+    else right--;
+  }
+  return count;
+}
+
+console.log(countPairsWithSum([1, 1, 2, 3, 3, 4, 5], 6)); // 2
+console.log(countPairsWithSum([1, 2, 3, 4, 5], 10)); // 0
+console.log(countPairsWithSum([1, 2, 2, 3, 3, 4, 5], 5)); // 2

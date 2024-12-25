@@ -73,3 +73,5 @@ This pattern is a problem-solving technique that involves **creating pointers (o
 - Reversing a String/Array:
   Use one pointer at the start and another at the end, swapping elements as they
   move toward each other.
+
+### Sliding Window

@@ -16,8 +16,9 @@
 // SOLUTION
 // =============================================================
 
-function maxSubarraySum(arr, n) {
-  if (arr.length === 0) return null;
+// O(n^2)
+function maxSubarraySum1(arr, n) {
+  if (n > arr.length) return null;
   let max = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
@@ -33,6 +34,40 @@ function maxSubarraySum(arr, n) {
     }
     max = Math.max(max, sum);
   }
+  return max;
+}
+
+// O(n^2)
+function maxSubarraySum2(arr, n) {
+  if (n > arr.length) return null;
+  let max = -Infinity;
+
+  for (let i = 0; i < arr.length - n + 1; i++) {
+    let temp = 0;
+    for (let j = 0; j < n; j++) {
+      temp += arr[i + j];
+    }
+    max = Math.max(max, temp);
+  }
+  return max;
+}
+
+// O(n)
+function maxSubarraySum(arr, n) {
+  if (arr.length < n) return null;
+
+  let max = 0,
+    temp = 0;
+
+  for (let i = 0; i < n; i++) {
+    max += arr[i];
+  }
+  temp = max;
+  for (let i = n; i < arr.length; i++) {
+    temp = temp - arr[i - n] + arr[i];
+    max = Math.max(max, temp);
+  }
+
   return max;
 }
 

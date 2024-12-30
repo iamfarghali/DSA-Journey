@@ -75,3 +75,41 @@ This pattern is a problem-solving technique that involves **creating pointers (o
   move toward each other.
 
 ### Sliding Window
+
+The sliding window pattern is a common technique in problem solving, used to optimize solutions for problems involving contiguous data, like arrays or strings. It is especially helpful when working with problems that require tracking a subset of elements or maintaining a window of data.
+
+**Core Idea**
+The sliding window pattern involves maintaining a "window" (a range of elements) that slides over the data structure. Instead of recalculating the result for every subset of data (which could be inefficient), you update the result dynamically as the window moves.
+
+**When to use it:**
+
+- When dealing with contiguous subarrays or substrings.
+- When you need to find something like:
+  - The maximum or minimum of a subarray.
+  - The sum or product of elements in a subarray.
+  - The length of the longest/shortest subarray meeting a certain condition.
+
+**How it works:**
+
+- **Define a window**:
+  The window represents a subset of the data, typically represented by two pointers (start and end) that track its boundaries.
+- **Expand the window**:
+  Gradually increase the size of the window by moving one of the pointers (usually the end pointer).
+- **Shrink the window** (optional):
+  Adjust the start pointer to shrink the window when necessary (e.g., when the window becomes invalid or exceeds constraints).
+- **Maintain a result**:
+  Keep track of the desired result (e.g., maximum sum, longest substring) by updating it as the window slides.
+
+**Why use it:**
+
+- **Efficiency**: Reduces the need for nested loops, lowering time complexity from O(n^2) to O(n) in many cases.
+- **Space-saving**: Operates within the input array or string, minimizing additional memory usage.
+
+**Example Scenarios:**
+
+- **Fixed-size window**:
+  Problems where the window size is known (e.g., the maximum sum of a subarray of size k).
+- **Dynamic-size window**:
+  Problems where the window size varies (e.g., finding the smallest subarray with a sum greater than k).
+- **Variable constraints**:
+  Problems involving constraints like distinct elements or a specific character frequency in a substring.

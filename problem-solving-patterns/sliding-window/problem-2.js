@@ -13,7 +13,7 @@
 // =============================================================
 
 // Solution 1 O(n^2)
-function minSubarrayLength(arr, target) {
+function minSubarrayLengthV1(arr, target) {
   if (arr.length === 0) return 0;
   let smallestArr = [];
   let tempArr = [];
@@ -40,6 +40,10 @@ function minSubarrayLength(arr, target) {
 
   return smallestArr.length;
 }
+
+// Solution 2
+function minSubarrayLength(arr, target) {}
+
 console.log(minSubarrayLength([2, 3, 1, 2, 4, 3], 7)); // 2
-console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1, 1], 11)); // 0
-console.log(minSubarrayLength([1, 4, 4], 4)); // 1
+// console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1, 1], 11)); // 0
+// console.log(minSubarrayLength([1, 4, 4], 4)); // 1

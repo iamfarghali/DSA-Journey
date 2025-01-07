@@ -45,5 +45,5 @@ function minSubarrayLengthV1(arr, target) {
 function minSubarrayLength(arr, target) {}
 
 console.log(minSubarrayLength([2, 3, 1, 2, 4, 3], 7)); // 2
-// console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1, 1], 11)); // 0
+console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1, 1], 11)); // 0
 // console.log(minSubarrayLength([1, 4, 4], 4)); // 1

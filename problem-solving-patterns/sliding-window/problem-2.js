@@ -42,8 +42,26 @@ function minSubarrayLengthV1(arr, target) {
 }
 
 // Solution 2
-function minSubarrayLength(arr, target) {}
+function minSubarrayLength(arr, target) {
+  if (arr.length === 0) return 0;
+
+  let left = 0,
+    cur = 0,
+    minLength = Infinity;
+
+  for (let right = 0; right < arr.length; right++) {
+    cur += arr[right];
+    while (cur >= target) {
+      minLength = Math.min(minLength, right - left + 1);
+      cur -= arr[left];
+      left += 1;
+    }
+  }
+
+  return minLength !== Infinity ? minLength : 0;
+}
 
 console.log(minSubarrayLength([2, 3, 1, 2, 4, 3], 7)); // 2
 console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1, 1], 11)); // 0
-// console.log(minSubarrayLength([1, 4, 4], 4)); // 1
+console.log(minSubarrayLength([1, 4, 4], 4)); // 1
+console.log(minSubarrayLength([4], 4)); // 1

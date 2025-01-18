@@ -113,3 +113,44 @@ The sliding window pattern involves maintaining a "window" (a range of elements)
   Problems where the window size varies (e.g., finding the smallest subarray with a sum greater than k).
 - **Variable constraints**:
   Problems involving constraints like distinct elements or a specific character frequency in a substring.
+
+### Divide & Conquer
+
+The divide and conquer pattern is a powerful problem-solving approach that involves breaking a problem into smaller, more manageable subproblems, solving each subproblem independently, and then combining their solutions to solve the original problem. This pattern is often used to solve problems efficiently, especially those that can be broken into overlapping or non-overlapping parts.
+
+**Key Steps in Divide and Conquer:**
+
+- Divide: Split the problem into smaller subproblems. These subproblems should ideally be similar in nature to the original problem.
+- Conquer: Solve each subproblem independently. If the subproblem is small enough, solve it directly (base case). Otherwise, apply the divide and conquer strategy recursively.
+- Combine: Merge the solutions of the subproblems to form the solution to the original problem.
+
+**When to use it:**
+
+- The problem can be broken into smaller, independent subproblems.
+- Solving subproblems recursively is easier than solving the original problem directly.
+- There is a clear way to combine the solutions of subproblems.
+- Efficiency matters, and breaking the problem down can reduce complexity.
+
+**Common Applications:**
+
+- Sorting Algorithms:
+  - Merge Sort and Quick Sort split the array into smaller subarrays, sort them, and then combine the results.
+- Searching Algorithms:
+  - Binary Search repeatedly divides the search space in half to find the target value.
+- Matrix Multiplication:
+  - Strassen's Algorithm divides matrices into smaller submatrices for efficient multiplication.
+- Divide and Conquer in Geometry:
+  - Finding the closest pair of points in a plane by dividing the points and solving for smaller regions.
+- Dynamic Programming Overlapping Problems:
+  - Techniques like the Master Theorem can analyze divide-and-conquer recursions to estimate runtime.
+
+**Advantages:**
+
+- Reduces problem complexity.
+- Leverages recursion for simplicity.
+- Many problems with inherent subproblem structures can be solved efficiently this way.
+
+**Disadvantages:**
+
+- May involve extra space due to recursion (stack usage).
+- Combining solutions can sometimes be non-trivial or expensive.

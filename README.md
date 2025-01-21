@@ -154,3 +154,53 @@ The divide and conquer pattern is a powerful problem-solving approach that invol
 
 - May involve extra space due to recursion (stack usage).
 - Combining solutions can sometimes be non-trivial or expensive.
+
+## Recursion
+
+Recursion is a problem-solving technique where a function calls itself to solve smaller instances of the same problem. It breaks a problem down into smaller subproblems of the same type until it reaches a base case (a condition where the function stops calling itself). Recursion is particularly useful for problems that can be defined in terms of smaller, similar subproblems.
+
+**Key Components of Recursion:**
+
+- **Base Case**: The condition that stops the recursion. Without a base case, the recursion would continue indefinitely, leading to a stack overflow.
+- **Recursive Case**: The part of the function where it calls itself to break the problem into smaller pieces.
+- **Progress Toward Base Case**: Each recursive call should move closer to the base case to ensure that the recursion terminates.
+
+**How Recursion Solves Problems:**
+
+- Identify the problem's repetitive structure or self-similarity.
+- Define the base case to handle the smallest, simplest version of the problem.
+- Define the recursive case to reduce the problem size and call the function with smaller inputs.
+- Combine the results of the recursive calls to solve the larger problem.
+
+**When to Use Recursion:**
+
+- Problems have a natural hierarchical or tree-like structure.
+- Subproblems are smaller instances of the original problem.
+- Iterative solutions are too complex or less intuitive.
+- Problems involve exploring multiple possibilities (e.g., backtracking, divide and conquer).
+
+**Common Applications:**
+
+- Tree Traversal:
+  - Navigating through nodes of a tree (e.g., pre-order, in-order, post-order traversal).
+- Divide and Conquer Algorithms:
+  - Problems like merge sort, quick sort, and binary search naturally use recursion.
+- Mathematical Computations:
+  - Calculating factorials, Fibonacci sequences, or powers.
+- Graph Algorithms:
+  - Depth-first search (DFS) uses recursion to explore nodes.
+- Dynamic Programming:
+  - Problems like the knapsack problem or finding the nth Fibonacci number using recursion with memoization.
+- Backtracking:
+  - Solving puzzles like Sudoku, the N-Queens problem, or finding permutations.
+
+**Advantages:**
+
+- Intuitive and Cleaner Code: Recursion can simplify the implementation of complex problems by breaking them into manageable parts.
+- Powerful for Tree/Graph Problems: Recursion is natural when dealing with problems that have a hierarchical structure.
+
+**Disadvantages:**
+
+- Risk of Stack Overflow: Recursive functions use the call stack, and excessive recursion depth can cause errors.
+- Performance Overhead: Recursive calls can be slower than iterative approaches due to function call overhead.
+- Memory Usage: Each recursive call consumes memory, which can become significant for deep recursion.

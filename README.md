@@ -204,3 +204,37 @@ Recursion is a problem-solving technique where a function calls itself to solve 
 - Risk of Stack Overflow: Recursive functions use the call stack, and excessive recursion depth can cause errors.
 - Performance Overhead: Recursive calls can be slower than iterative approaches due to function call overhead.
 - Memory Usage: Each recursive call consumes memory, which can become significant for deep recursion.
+
+## Searching Algorithms
+
+### Linear Search
+
+The linear search algorithm is a straightforward method used to find a target element within a list or array by checking each element one by one from the beginning to the end. Here's how it works conceptually:
+
+- Start at the Beginning:
+  Begin at the first element of the list.
+
+- Check Each Element:
+  For each element in the list, compare it with the target value you are looking for.
+
+- Determine a Match:
+  If a match is found: Stop the search and return the position (or the element itself) as the result.
+  If no match is found: Move on to the next element.
+
+- Continue Until End:
+  Continue this process until either a match is found or you have checked every element in the list.
+
+- Result if Not Found:
+  If you reach the end of the list without finding the target, the algorithm concludes that the target element is not present in the list.
+
+- Key Points:
+
+  - Simplicity:
+    Linear search is simple to understand and implement.
+
+  - Time Complexity:
+    In the worst case, every element in the list must be checked, leading to a time complexity of
+    O(n), where 𝑛 is the number of elements in the list.
+
+  - Use Cases:
+    This algorithm is most effective for small or unsorted lists. For larger or sorted lists, more efficient search algorithms (like binary search) might be preferable.

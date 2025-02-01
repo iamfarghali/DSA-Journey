@@ -238,3 +238,35 @@ The linear search algorithm is a straightforward method used to find a target el
 
   - Use Cases:
     This algorithm is most effective for small or unsorted lists. For larger or sorted lists, more efficient search algorithms (like binary search) might be preferable.
+
+### Binary Search
+
+Binary search is an efficient algorithm for finding a target element in a sorted list. Instead of examining every element one by one, it repeatedly divides the search space in half to quickly narrow down the location of the target. Here’s how it works conceptually:
+
+- Initial Setup:
+  Start with a sorted array or list. Define two boundaries: one for the beginning (the lower bound) and one for the end (the upper bound) of the list.
+- Finding the Middle:
+  Identify the middle element of the current search range. Since the array is sorted, the middle element divides the list into two halves.
+- Comparison:
+  Compare the target value with the middle element:
+  - If the target equals the middle element:
+    You’ve found the target, and the search is complete.
+  - If the target is less than the middle element:
+    The target must be in the left half of the array. So, adjust the search boundaries to focus only on the left half.
+  - If the target is greater than the middle element:
+    The target must be in the right half of the array. Adjust the boundaries to focus only on the right half.
+- Repeating the Process:
+  Repeat steps 2 and 3 on the new, smaller search range. Each iteration reduces the search space by half.
+- Termination:
+  The process continues until either the target is found or the search range is empty (which means the target is not in the list).
+
+- Key Points:
+
+  - Efficiency:
+    Because it halves the search space each time, binary search has a time complexity of O(logn), making it much faster than linear search for large, sorted datasets.
+
+  - Prerequisite:
+    The array must be sorted before binary search can be applied.
+
+  - Application:
+    Binary search is widely used not only for searching but also in algorithms that require a divide-and-conquer approach, such as finding insertion points, solving optimization problems, and more.

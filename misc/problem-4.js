@@ -2,7 +2,7 @@
 /*
   [Minimum Window Substring]
 
-  Given two strings, s and t, find the minimum window (substring) in s that contains all the characters of t (including duplicates). If no such window exists, return an empty string
+  Given two strings, str and target, find the minimum window (substring) in str that contains all the characters of target (including duplicates). If no such window exists, return an empty string
 
 
   - Examples:
@@ -15,50 +15,53 @@
 // SOLUTION
 // =============================================================
 
+const isCurStrContainsTarStr = (curMap, tarMap) => {
+  for (const char in tarMap) {
+    if (!curMap[char] || curMap[char] < tarMap[char]) return false;
+  }
+  return true;
+};
+
 function minWindowSubstring(str, target) {
+  if (target.length > str.length) return "";
+
   let left = 0,
-    curSubStr = str.substring(0, target.length);
+    minimum = Infinity,
+    minStr = "",
+    right = 0;
 
-  const targetMap = {};
-  for (let i = 0; i < target.length; i++) {
-    targetMap[target[i]] = (targetMap[target[i]] || 0) + 1;
+  const targetMap = {},
+    curSubStrMap = {};
+
+  // Build the frequency map for the target string
+  for (const char of target) {
+    targetMap[char] = (targetMap[char] || 0) + 1;
   }
 
-  const isCurStrContainsTarStr = (curMap, tarMap) => {
-    for (const char of Object.keys(tarMap)) {
-      if (!(char in curMap)) return false;
-      if (curMap[char] !== tarMap[char] || curMap[char] === 0) return false;
-    }
-    return true;
-  };
+  while (right < str.length) {
+    // Expand window by adding str[right]
+    curSubStrMap[str[right]] = (curSubStrMap[str[right]] || 0) + 1;
 
-  const curSubStrMap = {};
-  for (let i = 0; i < curSubStr.length; i++) {
-    curSubStrMap[curSubStr[i]] = (curSubStrMap[curSubStr[i]] || 0) + 1;
-  }
-  let minimum = Infinity;
-  let minStr = "";
-  let right = target.length;
-  while (left < right && minimum > target.length) {
+    // Shrink window while it contains the target
     while (isCurStrContainsTarStr(curSubStrMap, targetMap)) {
-      curSubStr = curSubStr.slice(1);
+      let windowSize = right - left + 1;
+      if (windowSize < minimum) {
+        minimum = windowSize;
+        minStr = str.substring(left, right + 1);
+      }
+
+      // Remove the leftmost character from the window
       curSubStrMap[str[left]]--;
-      // console.log("L ", left, curSubStr, curSubStrMap);
-      minimum = Math.min(minimum, right - left);
-      minStr = str.substring(left, right);
-      // console.log(minimum);
-      // console.log(minStr);
+      if (curSubStrMap[str[left]] === 0) delete curSubStrMap[str[left]];
       left++;
     }
-    // append next char
-    if (right < str.length) {
-      curSubStr += str[right];
-      curSubStrMap[str[right]] = (curSubStrMap[str[right]] || 0) + 1;
-      // console.log("R ", right, curSubStr, curSubStrMap);
-      right++;
-    }
+
+    right++; // Move the right pointer to expand the window
   }
+
   return minStr;
 }
 console.log(minWindowSubstring("abccbb", "bb")); // 'bb'
 console.log(minWindowSubstring("ADOBECODEBANC", "ABC")); // 'BANC'
+console.log(minWindowSubstring("AAADOBECODEBANC", "AABC")); // 'AADOBEC'
+console.log(minWindowSubstring("abcabcbb", "cbb")); //  // 'bcb'

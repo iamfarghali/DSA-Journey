@@ -270,3 +270,19 @@ Binary search is an efficient algorithm for finding a target element in a sorted
 
   - Application:
     Binary search is widely used not only for searching but also in algorithms that require a divide-and-conquer approach, such as finding insertion points, solving optimization problems, and more.
+
+## Sorting Algorithms
+
+### Bubble Sort
+
+Bubble sort is a simple, comparison-based sorting algorithm that repeatedly iterates through a list, comparing adjacent elements and swapping them if they are in the wrong order.
+
+- Process:
+  - The algorithm makes multiple passes through the list.
+  - During each pass, it compares each pair of adjacent elements.
+  - If the pair is out of order (for an ascending sort, if the first element is greater than the second), the algorithm swaps them.
+  - With each pass, the largest unsorted element "bubbles up" to its correct position at the end of the list.
+  - The process continues until a complete pass occurs with no swaps, indicating that the list is sorted.
+- Efficiency:
+  - Time Complexity: Bubble sort has a worst-case and average-case time complexity of O(n^2) where n is the number of elements.
+  - Space Complexity: It is an in-place algorithm with a space complexity of O(1), as it requires only a small, constant amount of additional storage.

@@ -22,4 +22,28 @@
 // SOLUTION
 // =============================================================
 
-function lengthOfLongestSubstringKDistinct(s, k) {}
+function lengthOfLongestSubstringKDistinct(s, k) {
+  const map = {};
+  let left = 0,
+    right = 0,
+    longest = -Infinity;
+
+  while (right < s.length) {
+    map[s[right]] = (map[s[right]] || 0) + 1;
+    while (Object.keys(map).length > k) {
+      if (map[s[left]] === 1) delete map[s[left]];
+      else map[s[left]]--;
+      left++;
+    }
+    longest = Math.max(longest, right - left + 1);
+    right++;
+  }
+  return longest;
+}
+
+console.log(lengthOfLongestSubstringKDistinct("ab", 3)); // 2
+console.log(lengthOfLongestSubstringKDistinct("eceeebadddad", 2)); // 6
+console.log(lengthOfLongestSubstringKDistinct("eceba", 2)); // 3
+console.log(lengthOfLongestSubstringKDistinct("abc", 1)); // 1
+console.log(lengthOfLongestSubstringKDistinct("aa", 1)); // 2
+console.log(lengthOfLongestSubstringKDistinct("abcadcacacaca", 3)); // 11
